@@ -1,0 +1,109 @@
+<h1>Listing people</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date of birth</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+      <td><%= person.first_name %></td>
+      <td><%= person.last_name %></td>
+      <td><%= person.date_of_birth %></td>
+      <td><%= link_to 'Show', person %></td>
+      <td><%= link_to 'Edit', edit_person_path(person) %></td>
+      <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Person', new_person_path %>
+</br>
+<hr>
+<br>
+
+<h1>Listing organizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of employees</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @organizations.each do |organization| %>
+    <tr>
+      <td><%= organization.name %></td>
+      <td><%= organization.number_of_employees %></td>
+      <td><%= link_to 'Show', organization %></td>
+      <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
+      <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Organization', new_organization_path %>
+
+
+<br>
+<hr>
+<br>
+<h1>Listing beers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beers.each do |beer| %>
+    <tr>
+      <td><%= beer.name %></td>
+      <td><%= beer.rating %></td>
+      <td><%= link_to 'Show', beer %></td>
+      <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
+      <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Beer', new_beer_path %>
+<br>
+<hr>
+<br>
+<p>
+  <% @array.each do |stuff| %>
+    <h1> <%= stuff[0].class.name %></h1>
+    <% stuff.each do |more_stuff| %>
+      <% if more_stuff.class.name == 'Person' %>
+        <li><%= more_stuff.first_name %></li>
+      <% elsif more_stuff.class.name == 'Organization' %>
+        <li><%= more_stuff.name %></li>
+      <% elsif more_stuff.class.name == 'Beer' %>
+        <li><%= more_stuff.name %></li>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>

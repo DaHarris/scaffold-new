@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-  end
+  end  
 
   # GET /people/new
   def new
