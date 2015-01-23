@@ -5,7 +5,9 @@ class WelcomeController < ApplicationController
     @organizations = Organization.all
     @beers =  Beer.all
 
-    @array = [@people, @organizations, @beers]
+    # @array = [@people, @organizations, @beers]
+
+    @holyshit = Contact.new(@people, @organizations, @beers)
 
   end
 end

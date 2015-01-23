@@ -1,0 +1,12 @@
+<% @holyshit.each do |stuff| %>
+<h1> <%= stuff[0].class.name %></h1>
+<% stuff.each do |more_stuff| %>
+<% if more_stuff.class.name == 'Person' %>
+<li><%= more_stuff.first_name %></li>
+<% elsif more_stuff.class.name == 'Organization' %>
+<li><%= more_stuff.name %></li>
+<% elsif more_stuff.class.name == 'Beer' %>
+<li><%= more_stuff.name %></li>
+<% end %>
+<% end %>
+<% end %>
